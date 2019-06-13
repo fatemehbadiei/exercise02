@@ -1,0 +1,25 @@
+<script>
+    window.onload = function () {
+        var msg = ["hello", " fatemeh", " how", " are", "you"];
+        var res = document.getElementById("res");
+        var counter = 0;
+        var i = 0;
+        setInterval(function () {
+            if (counter === msg[i].length) {
+                counter = 0;
+                res.innerHTML = "";
+                i++
+
+            }
+            if (i === msg.length) {
+                i = 0;
+                res.innerHTML = "";
+
+            }
+            res.innerHTML += msg[i][counter++]
+        }, 1000)
+    }
+
+
+</script>
+<div id="res"></div>

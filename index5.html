@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<script>
+    window.onload = function () {
+        var start = document.getElementById("start");
+        start.onclick = function () {
+            var msg = ["0003631.jpg", "images.jpg", "kh.jpg", "koliate-saadi-.jpg", "zartosht.jpg"];
+            var res = document.getElementById("res");
+            var counter = 0;
+            var i = 0;
+            var ID = setInterval(function () {
+                if (i === msg.length) {
+                    i = 0;
+                    res.innerHTML = "";
+
+                }
+                res.innerHTML = "<img src='img/" + msg[i++] + "'>"
+            }, 1000);
+
+            var stop = document.getElementById("stop");
+            stop.onclick = function () {
+                clearInterval(ID);
+            };
+        };
+
+    }
+
+</script>
+<div id="res"></div>
+<button id="start">start</button>
+<button id="stop">stop</button>
