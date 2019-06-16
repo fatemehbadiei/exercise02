@@ -1,0 +1,15 @@
+#res,#r,#re{
+    margin-left: 50px;
+}
+#php-img,#java-img,#python-img{
+    width: 30px;
+    height: 30px;
+    margin-left: 50px;
+
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+
+}

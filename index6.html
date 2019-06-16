@@ -1,0 +1,85 @@
+<head>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<script src="lib/jquery%203.4.1.js"></script>
+<script>
+
+    $(function () {
+        $("#res")
+            .hide();
+        $("#re")
+            .hide();
+        $("#r")
+            .hide();
+        $("#btn").click(function () {
+            $("#res")
+                .toggle(1000);
+
+            $("#re")
+                .toggle(1000);
+
+            $("#r")
+                .toggle(1000);
+
+        });
+        $(function () {
+            $("#php-img")
+                .hide();
+            $("#java-img")
+                .hide();
+            $("#python-img")
+                .hide();
+            $("#mines")
+                .hide();
+            $("#mines1")
+                .hide();
+            $("#mines2")
+                .hide();
+
+            $("#php").click(function () {
+                $("#plus")
+                    .toggle();
+                $("#mines")
+                    .toggle();
+                $("#php-img")
+                    .toggle(1000);
+            });
+            $("#java").click(function () {
+                $("#plus1")
+                    .toggle();
+                $("#mines1")
+                    .toggle();
+                $("#php-img")
+                    .toggle()
+                $("#java-img")
+                    .toggle(1000);
+            });
+            $("#python").click(function () {
+                $("#plus2")
+                    .toggle();
+                $("#mines2")
+                    .toggle();
+                $("#python-img")
+                    .toggle(1000)
+
+            })
+        })
+    })
+
+
+</script>
+<button id="btn">language</button>
+<div>
+    <div id="res" class="flex">
+        <span id="php"><span id="plus">+</span><span id="mines">-</span>php</span>
+        <img id="php-img" src="img/php.png">
+    </div>
+    <div id="re" class="flex">
+        <span id="java"><span id="plus1">+</span><span id="mines1">-</span>java</span>
+        <img id="java-img" src="img/images.png">
+    </div>
+    <div id="r" class="flex">
+        <span id="python"><span id="plus2">+</span><span id="mines2">-</span>python</span>
+        <img id="python-img" src="img/python.jpg">
+    </div>
+</div>
