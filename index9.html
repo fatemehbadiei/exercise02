@@ -1,0 +1,21 @@
+<script src="lib/jquery%203.4.1.js"></script>
+<style>
+    .divStyle{
+        background-color: red;
+        color: white
+    }
+</style>
+<script>
+    $(function () {
+        $("#btnAdd").on("click", function () {
+            $("#myDiv").addClass("divStyle");
+        });
+        $("#btnRm").on("click", function () {
+            $("#myDiv").removeClass("divStyle");
+        });
+    })
+
+</script>
+<div id="myDiv">sample</div>
+<button id="btnAdd">add class</button>
+<button id="btnRm">remove class</button>

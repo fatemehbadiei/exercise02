@@ -1,0 +1,12 @@
+<validation>
+    <user id="1">
+        <username>admin</username>
+        <pwd>123</pwd>
+    </user>
+    <user id="2">
+        <username>user</username>
+        <pwd>456</pwd>
+    </user>
+
+
+</validation>

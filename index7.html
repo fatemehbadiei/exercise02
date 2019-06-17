@@ -1,0 +1,19 @@
+<script src="lib/jquery%203.4.1.js"></script>
+<script>
+    $(function () {
+
+
+        $("#interest").on("change", function () {
+            alert($("#interest option:selected").val());
+        });
+    })
+
+
+</script>
+<select id="interest">
+    <option>study</option>
+    <option>movie</option>
+    <option>sport</option>
+</select>
+
+

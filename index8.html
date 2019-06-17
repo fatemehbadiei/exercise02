@@ -1,0 +1,22 @@
+<script src="lib/jquery%203.4.1.js"></script>
+<script>
+    $(function () {
+
+
+        $("#interest").on("change", function () {
+            var container="";
+            $("#interest option:selected").each(function () {
+                container+=$(this).val() +",";
+            });
+            alert(container);
+        });
+    })
+
+
+</script>
+<select id="interest" multiple>
+    <option>study</option>
+    <option>movie</option>
+    <option>sport</option>
+</select>
+

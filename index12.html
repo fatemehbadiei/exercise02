@@ -1,0 +1,19 @@
+<script src="lib/jquery%203.4.1.js"></script>
+<script>
+    $(function () {
+        $("#btn").on("click",function () {
+            var samples=[10,20,30];
+            $(samples).each(function (index) {
+                alert(samples[index])
+            })
+
+        })
+    })
+
+</script>
+<ul>
+    <li>one</li>
+    <li>tow</li>
+    <li>tree</li>
+</ul>
+<button id="btn">get</button>
