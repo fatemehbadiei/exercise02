@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery%203.4.1.js"></script>
+    <script>
+        $(function () {
+            $("#res").hide();
+            $("#items").on("change", function () {
+                var user_item = $("#items option:selected").val();
+                if (user_item === 'select your item') {
+                    $("#res").hide();
+                    alert("choose one");
+
+                } else {
+                    $.ajax({
+                        url: "resources/sample1.json",
+                        method: "get",
+                        dataType: "json",
+                        success: function (response) {
+                            $("#res").empty();
+                            $("#res").show();
+                            $(response).each(function (index) {
+                                if (response[index].type === user_item) {
+                                    $(response[index].model).each(function (i) {
+                                        $("#res").append("<option>" + response[index].model[i] + "</option>");
+                                    })
+                                }
+
+                            })
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<select id="items">
+    <option>select your item</option>
+    <option>laptop</option>
+    <option>tv</option>
+</select>
+<select id="res"></select>
+</body>
+</html>
