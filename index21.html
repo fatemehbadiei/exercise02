@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery%203.4.1.js"></script>
+    <script>
+        $(function () {
+            $("#interest").on("change", function () {
+                if ($("#interest option:selected").val() === 'select') {
+                    alert("choose")
+                }
+
+
+                else {
+                    alert($("#interest option:selected").val());
+                }
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<select id="interest">
+    <option>select</option>
+    <option>study</option>
+    <option>sport</option>
+    <option>movie</option>
+</select>
+
+</body>
+</html>

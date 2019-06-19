@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery%203.4.1.js"></script>
+    <script>
+       $(function () {
+           $("#btn").on("click",function () {
+               var container="";
+               $("[name='interest']:checked").each(function () {
+                   container+=$(this).val()
+               });
+               alert(container);
+           })
+       })
+    </script>
+</head>
+<body>
+<input type="checkbox" name="interest" value="study">study
+<input type="checkbox" name="interest" value="movie">movie
+<input type="checkbox" name="interest" value="sport">sport
+<button id="btn">get</button>
+</body>
+</html>

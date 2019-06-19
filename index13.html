@@ -1,0 +1,21 @@
+<script src="lib/jquery 3.4.1.js"></script>
+<script>
+$(function(){
+    $("#get_data").on("click",function () {
+        $.ajax({
+            url:"resources/sample.json",
+            method:"get",
+            dataType:"json",
+            success:function (response) {
+                $(response).each(function (index) {
+                    console.log(response[index].username);
+                });
+            }
+
+        })
+    })
+})
+
+</script>
+<button id="get_data">get data</button>
+<div id="res"></div>

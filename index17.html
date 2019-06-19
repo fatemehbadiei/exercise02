@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery%203.4.1.js"></script>
+    <script>
+        $(function () {
+            $("[name='sample']").on("click", function () {
+                alert($("[name='sample']:checked").val())
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="radio" name="sample" value="male">male
+<input type="radio" name="sample" value="female">female
+</body>
+</html>

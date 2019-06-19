@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery%203.4.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").on("click",function () {
+                alert($("#interest option:selected").val());
+            })
+        })
+    </script>
+</head>
+<body>
+<select id="interest">
+    <option>study</option>
+    <option>sport</option>
+    <option>movie</option>
+</select>
+<button id="btn">get</button>
+</body>
+</html>
