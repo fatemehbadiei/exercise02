@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="lib/jquery%203.4.1.js"></script>
+    <style>
+        table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        $(function () {
+            $.ajax({
+                url:"resources/sample2.json",
+                method:"get",
+                dataType:"json",
+                success:function (response) {
+                    $(response.week).each(function (i) {
+                        $("td#spec").each(function () {
+                            if($(this).parent().attr('data-day')===response.week[i].day && $.inArray($(this).attr('data-time'),response.week[i].time)!=-1){
+                                $(this).css({'background-color':'green'});
+                            }
+                        })
+                    })
+                }
+
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>day</td>
+        <td>08:00</td>
+        <td>10:00</td>
+    </tr>
+    <tr id="day" data-day="saturday">
+        <td>saturday</td>
+        <td id="spec" data-time="08:00"></td>
+        <td id="spec" data-time="10:00"></td>
+    </tr>
+    <tr id="day" data-day="sunday">
+        <td>sunday</td>
+        <td id="spec" data-time="08:00"></td>
+        <td id="spec" data-time="10:00"></td>
+    </tr>
+</table>
+
+</body>
+</html>
