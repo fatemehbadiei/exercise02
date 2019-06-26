@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+    <script src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <style>
+        .img{
+            width: 100px;
+            height: 100px;
+        }
+        #res{
+            display: flex;
+            flex-direction:row;
+        }
+        .dp{
+            display: flex;
+            flex-direction:column;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#btn").on("click", function () {
+                $.ajax({
+                    url: "resources/sample3.json",
+                    method: "get",
+                    dataType: "json",
+                    success: function (response) {
+                        $("#res").empty();
+                        $(response).each(function (i) {
+                            $("#res").append("<div class='dp'><img class='img' src='" + response[i].src + "' title='"+response[i].name + ","+response[i].writer+ ","+ response[i].price+"'><a href='#' data-addr='"+response[i].id+"'> ادامه مطلب</a></div>");
+                            $(document).tooltip();
+                            $("a").on("click",function () {
+                                $("#des").empty();
+                                var data=$(this).attr("data-addr");
+                                $(response).each(function (i) {
+                                    if(response[i].id===data){
+                                        $("#des").append("<div>"+response[i].description +"</div>")
+                                    }
+                                })
+
+                            })
+                        })
+
+                    }
+                })
+            })
+        })
+    </script>
+
+</head>
+<body>
+<div id="res"></div>
+<button id="btn">get</button>
+<div id="des"></div>
+</body>

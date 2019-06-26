@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+    <script src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "resources/city.txt",
+                method: "get",
+                dataType: "text",
+                success: function (response) {
+                    var resToArray = response.split(",");
+                    $("#search").autocomplete({
+                        source: resToArray
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="text" id="search" placeholder="Search">
+</body>
+</html>
