@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+    <script src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <style>
+        table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        $(function () {
+            $.ajax({
+                url:"resources/sample2.json",
+                method:"get",
+                dataType:"json",
+                success:function (response) {
+                    $(response.week).each(function (i) {
+                        $("td#spec").each(function () {
+                            if($(this).parent().attr('data-day')===response.week[i].day && $.inArray($(this).attr('data-time'),response.week[i].time)!=-1){
+                                $(this).css({'background-color':'green'});
+                            }
+                            $( "#datepicker" ).datepicker();
+                        })
+                    })
+                }
+
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+Date: <input type="text" id="datepicker">
+<br>
+<br>
+<table>
+    <tr>
+        <td>day</td>
+        <td>08:00</td>
+        <td>10:00</td>
+    </tr>
+    <tr id="day" data-day="saturday">
+        <td>saturday</td>
+        <td id="spec" data-time="08:00"></td>
+        <td id="spec" data-time="10:00"></td>
+    </tr>
+    <tr id="day" data-day="sunday">
+        <td>sunday</td>
+        <td id="spec" data-time="08:00"></td>
+        <td id="spec" data-time="10:00"></td>
+    </tr>
+</table>
+
+</body>
+</html>

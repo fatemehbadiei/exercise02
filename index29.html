@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+    <script src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+       .sub {
+            list-style-type: none;
+            border: 1px solid black;
+            height: 22px;
+            width: 145px;
+        }
+    </style>
+    <script>
+        $(function () {
+            $.ajax({
+                url: "resources/sample4.json",
+                method: "get",
+                dataType: "json",
+                success: function (response) {
+                    $("#search").on("keyup", function () {
+                        var user = $(this).val();
+                        var sub_ul = "<ul '>";
+                        $(response).each(function (i) {
+                            if (response[i].city.indexOf(user) === 0 && user !== "") {
+                                sub_ul += "<li class='sub'>" + response[i].city + "</li>";
+                            }
+                        });
+                        sub_ul += "</ul>";
+                        $("#res").html(sub_ul)
+
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="text" id="search" placeholder="Search">
+<div id="res"></div>
+</body>
+</html>

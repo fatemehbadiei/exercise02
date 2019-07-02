@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.1/jquery-ui.css">
+    <script src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            console.log(document.cookie);
+            var content = document.cookie.split(";");
+            with (content[0]) {
+                var getData = substring(6, length - 1);
+            }
+            with (content[1]) {
+                var getPrice = substring(7, length - 1);
+            }
+            var price = getPrice.split(",");
+            var splitor = getData.split(",");
+
+            var table = "<table border='1px'>";
+            table += "<tr>";
+            table += "<td>id</td><td>title</td><td>price</td>";
+            table += "</tr>";
+            var id = 1;
+            var total = 0;
+            $(price).each(function (i) {
+                total += parseInt(price[i]);
+                table += "<tr>";
+                table += "<td>" + id++ + "</td>";
+                table += "<td>" + splitor[i] + "</td>";
+                table += "<td>" + price[i] + "</td>";
+                table += "</tr>";
+            });
+            table += "<tr id='total'>";
+            table += "<td>Total</td><td colspan='2'>" + total + "</td>";
+            table += "</tr>";
+            table += "</table>";
+            $("#app").html(table);
+        })
+    </script>
+</head>
+<body>
+<div id="app"></div>
+</body>
+</html>

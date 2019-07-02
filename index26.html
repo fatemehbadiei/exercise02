@@ -7,16 +7,17 @@
     <script src="lib/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
     <script src="lib/jquery-ui-1.12.1/jquery-ui.js"></script>
     <style>
-        div#item{
+        div#item {
             background-color: gray;
-            color:white;
+            color: white;
             border: 1px solid black;
             width: 150px;
             height: 50px;
             margin: 10px 10px 10px 10px;
             text-align: center;
         }
-        div#basket{
+
+        div#basket {
             border: 1px solid black;
             width: 300px;
             height: 100px;
@@ -24,38 +25,49 @@
             top: 200px;
             position: absolute;
         }
-        div#item:hover{
+
+        div#item:hover {
             cursor: move;
         }
-        a{
+
+        a {
             position: absolute;
-            top:300px;
+            top: 300px;
             left: 320px;
             display: none;
         }
     </style>
     <script>
         $(function () {
-            var item_number=1;
-            $("div#item").draggable({revert:true});
+            var item_number = 1;
+            var items = "";
+            var priceContainer ="";
+            $("div#item").draggable({revert: true});
             $("div#basket").droppable({
-                drop:function (event,ui) {
+                drop: function (event, ui) {
                     $(this).empty();
                     $(ui.draggable).remove();
                     $(this).html(item_number++ + "item(s) added");
+                    items += ui.draggable.html() + ",";
+                    priceContainer += ui.draggable.attr("data-prices") + ",";
+                    document.cookie = "items=" + items;
+                    document.cookie = "price=" + priceContainer;
+                    console.log(document.cookie);
                     $("a").show(function () {
-                        $(this).attr("href","payment.html")
+                        $(this).attr("href", "payment.html")
                     })
                 }
             })
-        })
+        });
+
+
 
     </script>
 </head>
 <body>
-<div id="item">php</div>
-<div id="item">java</div>
-<div id="item">python</div>
+<div id="item" data-prices="2000">php</div>
+<div id="item" data-prices="3000">java</div>
+<div id="item" data-prices="4000">python</div>
 <div id="basket">drop here</div>
 <a href="#">payment</a>
 </body>
